@@ -3,8 +3,11 @@
 import {
   app,
   protocol,
-  BrowserWindow
+  BrowserWindow,
+  ipcMain
 } from 'electron'
+
+
 import {
   createProtocol,
   installVueDevtools
@@ -33,12 +36,19 @@ function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+    if (!process.env.IS_TEST) {
+      win.webContents.openDevTools()
+      BrowserWindow.addDevToolsExtension(
+        "C:/Users/admin/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/5.1.1_0"
+      );
+    }
   } else {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
+
+
 
   win.on('closed', () => {
     win = null
@@ -92,3 +102,8 @@ if (isDevelopment) {
     })
   }
 }
+
+
+ipcMain.on('OPEN_DEVTOOLS', () => {
+  win.webContents.openDevTools()
+})
