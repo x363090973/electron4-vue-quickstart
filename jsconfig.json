@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+
+
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": [
+        "src/*"
+      ],
+      "@/*": [
+        "src/renderer/*"
+      ]
+    },
+
+  },
+
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+  ]
+}
