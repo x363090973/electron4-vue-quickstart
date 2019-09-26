@@ -34,7 +34,8 @@ module.exports = {
         'src': resolve('src')
       }
     },
-
+    //vue调试模式
+    devtool: 'source-map'
   },
   pluginOptions: {
     electronBuilder: {
@@ -43,19 +44,17 @@ module.exports = {
         // Detail: https://www.electron.build/configuration/configuration
         "appId": "com.example.aDemo",
         "productName": "aDemo", //项目名，也是生成的安装文件名，即aDemo.exe
+        // "publish": [{
+        //   "provider": "github",
+        //   owner: 'x363090973', // 拥有者
+        //   token: 'ec48a133b0a2a61e4daee6cb0d50f4a1c4349329', // gitToken
+        //   releaseType: 'release',
+        //   publishAutoUpdate: true // 发布自动更新（需要配置GH_TOKEN）。 默认true
+        // }],
         "publish": [{
-          "provider": "github",
-          owner: 'x363090973', // 拥有者
-          token: 'ec48a133b0a2a61e4daee6cb0d50f4a1c4349329', // gitToken
-          releaseType: 'release',
-          publishAutoUpdate: true // 发布自动更新（需要配置GH_TOKEN）。 默认true
+          "provider": "generic",
+          "url": "http://106.15.234.206:1234/assets/electron-quick-start"
         }],
-        // "publish": [
-        //   {
-        //     "provider": "generic",
-        //     "url": "http://www.xxx.com/static/dist/"
-        //   }
-        // ],
         "win": { //win相关配置
           //"icon": "./shanqis.ico", //图标，当前图标在根目录下，注意这里有两个坑
           "target": [{
@@ -67,6 +66,7 @@ module.exports = {
         }
       }
     }
-  }
+  },
+
 
 }

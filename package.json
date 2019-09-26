@@ -1,21 +1,27 @@
 {
   "name": "electron-version4",
-  "version": "0.1.1",
-  "private": true,
+  "version": "2.1.0",
+  "private": false,
   "scripts": {
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service electron:build",
     "serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    "publish": "vue-cli-service electron:build --publish always"
+    "electron:publish": "vue-cli-service electron:build --publish always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/cli.git"
   },
   "main": "background.js",
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
+    "electron-updater": "^4.1.2",
     "ffi": "^2.3.0",
     "iconv-lite": "^0.5.0",
+    "images": "^3.0.2",
     "request": "^2.88.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",

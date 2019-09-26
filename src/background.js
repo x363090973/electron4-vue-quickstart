@@ -7,6 +7,9 @@ import {
   ipcMain
 } from 'electron'
 
+import {
+  updateHandle
+} from './background_update'
 
 import {
   createProtocol,
@@ -50,6 +53,7 @@ function createWindow() {
 
 
 
+
   win.on('closed', () => {
     win = null
   })
@@ -86,6 +90,10 @@ app.on('ready', async () => {
 
   }
   createWindow()
+  setTimeout(() => {
+    updateHandle(win)
+  }, 1000);
+
 })
 
 // Exit cleanly on request from parent process in development mode.
