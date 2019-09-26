@@ -21,10 +21,18 @@ export default {
 
   computed: {},
   created () {
-      ipcRenderer.on('updateMessage', (event, { message, data }) => {
-        console.log(message,data) // Prints 'whoooooooh!'
-      })
-    },
+    ipcRenderer.on('updateMessage', (event, { message, data }) => {
+      console.log(message, data) // Prints 'whoooooooh!'
+      switch (message) {
+        case 'isUpdateNow':
+          ipcRenderer.send('updateNow');
+          break;
+        default:
+          document.querySelector('h1').innerHTML = message;
+          break;
+      }
+    })
+  },
   mounted () {
 
   },

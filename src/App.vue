@@ -15,7 +15,7 @@ const { ipcRenderer } = require('electron')
 const fa = require('fs')
 export default {
 
- 
+
   mounted () {
     console.log(ffiApi.testDll.test('测试'))
 

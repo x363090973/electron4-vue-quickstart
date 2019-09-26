@@ -3,9 +3,6 @@
 //2.本身函数的callback形式不够有优雅,dll的对接应该保持统一的返回格式,方便 callback的封装以及错误抛出
 
 import ffi from 'ffi'
-import {
-  Buffer
-} from 'buffer';
 
 let iconv = require("iconv-lite");
 

@@ -37,19 +37,18 @@ export function updateHandle(_win) {
 
   // 更新下载进度事件
   autoUpdater.on('download-progress', function (progressObj) {
-    sendUpdateMessage(progressObj)
+    sendUpdateMessage('download-progress', progressObj)
   })
   autoUpdater.on('update-downloaded', function (event, releaseNotes, releaseName, releaseDate,
     updateUrl, quitAndUpdate) {
-
-    ipcMain.on('isUpdateNow', (e, arg) => {
+    ipcMain.on('updateNow', (e, arg) => {
       //some code here to handle event
       autoUpdater.quitAndInstall();
-    });
-
+    })
+    sendUpdateMessage('isUpdateNow');
 
   });
-  autoUpdater.checkForUpdates();
+
   ipcMain.on("checkForUpdate", () => {
 
     //执行自动更新检查

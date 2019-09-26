@@ -33,6 +33,15 @@ module.exports = {
         '@': resolve('src'),
         'src': resolve('src')
       }
+
+    },
+    module: {
+      rules: [{
+        test: /node_modules[\/\\](iconv-lite)[\/\\].+/,
+        resolve: {
+          aliasFields: ['main']
+        }
+      }],
     },
     //vue调试模式
     devtool: 'source-map'

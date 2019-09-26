@@ -11,15 +11,14 @@
 ```
 1. npm install --global --production windows-build-tools
 2. npm install node-gyp --g (全局安装)
-3.  npm install  electron-rebuild --save
-4. npm install ffi --save
-5. ./node_modules/.bin/electron-rebuild ./node_modules/ffi  (此处提示编译成功，环境就部署好了)
+3. npm run install
+4. ./node_modules/.bin/electron-rebuild ./node_modules/ffi  (此处提示编译成功，环境就部署好了)
 ```
 
 ## Project setup
 
 ```
-yarn install
+npm run install 尽量不要使用yarn，yarn可能不会触发electron-rebuild
 ```
 
 ### Compiles and hot-reloads for development
